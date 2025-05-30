@@ -3,7 +3,9 @@ Content-Type: application/json
 
 
 {
-"ratePerSecond": 7,
-"testCount": 800,
-"processingTimeMillis": 3500
+  "ratePerSecond": 10,
+  "testCount": 5000,
+  "processingTimeMillis": 20000
 }
+
+
