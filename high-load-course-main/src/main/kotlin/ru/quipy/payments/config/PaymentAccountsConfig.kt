@@ -31,7 +31,7 @@ class PaymentAccountsConfig {
     @Value("\${payment.hostPort}")
     lateinit var paymentProviderHostPort: String
 
-    private val allowedAccounts = setOf("acc-5")
+    private val allowedAccounts = setOf("acc-8")
 
     @Bean
     fun rateLimiter(): RateLimiter = LeakingBucketRateLimiter(
