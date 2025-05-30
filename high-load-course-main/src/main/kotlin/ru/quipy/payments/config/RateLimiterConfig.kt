@@ -15,8 +15,8 @@ class RateLimiterConfig {
     @Bean
     fun adaptiveRateLimiter(): AdaptiveRateLimiter =
         AdaptiveRateLimiter(
-            rate = 100L,
-            window = Duration.ofSeconds(1),
-            bucketSize = 100
+            rate = 100000L,
+            window = Duration.ofSeconds(10000),
+            bucketSize = 10000
         )
 }

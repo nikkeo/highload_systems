@@ -35,7 +35,7 @@ class PaymentAccountsConfig {
     @Value("\${payment.hostPort}")
     lateinit var paymentProviderHostPort: String
 
-    private val allowedAccounts = setOf("acc-9")
+    private val allowedAccounts = setOf("acc-12")
 
     @Bean
     fun adaptiveRateLimiter(): AdaptiveRateLimiter =
@@ -45,15 +45,15 @@ class PaymentAccountsConfig {
             bucketSize = 100
         )
 
-    @Scheduled(fixedDelay = 5000)
+    @Scheduled(fixedDelay = 5)
     fun adjustRateLimiter() {
         val load = getCurrentLoad()
 
         val newRate = when {
-            load < 0.5 -> 200L
-            load < 0.75 -> 100L
-            load < 0.9 -> 50L
-            else -> 20L
+            load < 0.5 -> 2000L
+            load < 0.75 -> 1000L
+            load < 0.9 -> 500L
+            else -> 200L
         }
 
         val newBucketSize = (newRate * 2).toInt()
